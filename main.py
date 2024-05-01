@@ -1,4 +1,8 @@
 import requests
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 def consulta_previsao_tempo(cidade, API_KEY):
     link = f"https://api.openweathermap.org/data/2.5/weather?q={cidade}&appid={API_KEY}&lang=pt-br"
@@ -31,7 +35,7 @@ def exibir_previsao_tempo(dados_previsao):
     
     
 def main():
-    API_KEY = "29c83f212af54cbd4a2f906b8407469a"
+    API_KEY = str(os.getenv("API_KEY"))
     
     print("Bem vindo ao serviço de previsão do tempo!")
     
